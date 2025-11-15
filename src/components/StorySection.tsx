@@ -2,12 +2,13 @@ import { useEffect, useRef, useState } from "react";
 
 interface StorySectionProps {
   title: string;
+  subtitle?: string;
   content: string;
   image?: string;
   reverse?: boolean;
 }
 
-export const StorySection = ({ title, content, image, reverse = false }: StorySectionProps) => {
+export const StorySection = ({ title, subtitle, content, image, reverse = false }: StorySectionProps) => {
   const [isVisible, setIsVisible] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 
@@ -31,24 +32,32 @@ export const StorySection = ({ title, content, image, reverse = false }: StorySe
   return (
     <section 
       ref={ref}
-      className={`py-20 px-4 transition-all duration-1000 ${isVisible ? 'opacity-100' : 'opacity-0'}`}
+      className="py-32 px-4 border-t border-border/30"
     >
-      <div className={`max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center ${reverse ? 'md:grid-flow-dense' : ''}`}>
+      <div className={`max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-center ${reverse ? 'md:grid-flow-dense' : ''}`}>
         {image && (
-          <div className={`${reverse ? 'md:col-start-2' : ''} ${isVisible ? 'animate-slide-in' : ''}`}>
-            <img 
-              src={image} 
-              alt={title}
-              className="rounded-2xl shadow-soft w-full h-[400px] object-cover"
-            />
+          <div className={`${reverse ? 'md:col-start-2' : ''} ${isVisible ? 'animate-fade-in' : 'opacity-0'}`}>
+            <div className="relative">
+              <div className="absolute -inset-4 border border-primary/20 rounded-sm" />
+              <img 
+                src={image} 
+                alt={title}
+                className="relative rounded-sm w-full h-[500px] object-cover grayscale hover:grayscale-0 transition-all duration-700"
+              />
+            </div>
           </div>
         )}
-        <div className={`space-y-6 ${isVisible ? 'animate-fade-in' : ''}`}>
-          <h2 className="text-4xl md:text-5xl font-bold text-foreground">
+        <div className={`space-y-8 ${isVisible ? 'animate-slide-in' : 'opacity-0'}`}>
+          {subtitle && (
+            <div className="inline-block px-4 py-1 border border-primary/30 rounded-sm">
+              <span className="text-xs tracking-widest text-primary/70">{subtitle}</span>
+            </div>
+          )}
+          <h2 className="text-4xl md:text-5xl font-bold text-primary">
             {title}
           </h2>
-          <div className="w-20 h-1 bg-primary" />
-          <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
+          <div className="w-16 h-px bg-primary/50" />
+          <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
             {content}
           </p>
         </div>
