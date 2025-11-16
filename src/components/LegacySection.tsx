@@ -46,8 +46,9 @@ export const LegacySection = () => {
 
   return (
     <section 
+      id="legacy"
       ref={ref}
-      className="py-32 px-4 border-t border-border/30"
+      className="py-32 px-4 border-t border-border/30 bg-card/10"
     >
       <div className="max-w-7xl mx-auto">
         <div className={`text-center mb-20 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
@@ -57,26 +58,27 @@ export const LegacySection = () => {
           <h2 className="text-4xl md:text-6xl font-bold text-primary mb-4">
             THE ETERNAL LEGACY
           </h2>
+          <div className="w-16 h-px bg-primary/50 mx-auto mt-6" />
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {impacts.map((impact, index) => (
             <div
               key={impact.title}
-              className={`group relative p-8 border border-border/30 rounded-sm transition-all duration-700 hover:border-primary/50 hover:bg-card/50 ${
+              className={`group relative p-8 border border-border/30 rounded-sm transition-all duration-700 hover:border-primary/50 hover:bg-card/50 hover:shadow-soft ${
                 isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
               }`}
               style={{ transitionDelay: `${index * 150}ms` }}
             >
               <div className="mb-6">
-                <span className="text-5xl font-bold text-primary/20 group-hover:text-primary/40 transition-colors">
+                <span className="text-5xl font-bold text-primary/20 group-hover:text-primary/40 transition-colors duration-300">
                   {impact.number}
                 </span>
               </div>
               <h3 className="text-lg font-bold text-primary mb-4 tracking-wider">
                 {impact.title}
               </h3>
-              <div className="w-12 h-px bg-primary/30 mb-4" />
+              <div className="w-12 h-px bg-primary/30 group-hover:bg-primary/50 transition-colors mb-4" />
               <p className="text-sm text-muted-foreground leading-relaxed">
                 {impact.description}
               </p>

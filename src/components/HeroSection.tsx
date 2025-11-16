@@ -8,14 +8,15 @@ export const HeroSection = () => {
   }, []);
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-hero">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-hero pt-20">
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_hsl(160_35%_20%_/_0.3)_0%,_transparent_70%)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(to_bottom,_transparent_0%,_hsl(var(--background))_100%)]" />
       </div>
       
       <div className={`relative z-10 text-center px-4 max-w-5xl mx-auto transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
         <div className="mb-8">
-          <div className="inline-block px-6 py-2 border border-primary/40 rounded-sm mb-8">
+          <div className="inline-block px-6 py-2 border border-primary/40 rounded-sm mb-8 animate-fade-in">
             <span className="text-sm tracking-widest text-primary/80">A TRIBUTE</span>
           </div>
         </div>
