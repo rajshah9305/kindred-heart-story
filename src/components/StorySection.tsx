@@ -31,14 +31,15 @@ export const StorySection = ({ title, subtitle, content, image, reverse = false 
 
   return (
     <section 
+      id="story"
       ref={ref}
       className="py-32 px-4 border-t border-border/30"
     >
       <div className={`max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-center ${reverse ? 'md:grid-flow-dense' : ''}`}>
         {image && (
-          <div className={`${reverse ? 'md:col-start-2' : ''} ${isVisible ? 'animate-fade-in' : 'opacity-0'}`}>
-            <div className="relative">
-              <div className="absolute -inset-4 border border-primary/20 rounded-sm" />
+          <div className={`${reverse ? 'md:col-start-2' : ''} transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+            <div className="relative group">
+              <div className="absolute -inset-4 border border-primary/20 rounded-sm transition-colors duration-300 group-hover:border-primary/40" />
               <img 
                 src={image} 
                 alt={title}
@@ -47,7 +48,7 @@ export const StorySection = ({ title, subtitle, content, image, reverse = false 
             </div>
           </div>
         )}
-        <div className={`space-y-8 ${isVisible ? 'animate-slide-in' : 'opacity-0'}`}>
+        <div className={`space-y-8 transition-all duration-700 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-[-30px]'}`}>
           {subtitle && (
             <div className="inline-block px-4 py-1 border border-primary/30 rounded-sm">
               <span className="text-xs tracking-widest text-primary/70">{subtitle}</span>
