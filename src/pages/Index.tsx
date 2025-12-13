@@ -2,6 +2,8 @@ import { HeroSection } from "@/components/HeroSection";
 import { StorySection } from "@/components/StorySection";
 import { QuoteSection } from "@/components/QuoteSection";
 import { LegacySection } from "@/components/LegacySection";
+import { VideoSection } from "@/components/VideoSection";
+import { MemorialMessages } from "@/components/MemorialMessages";
 import { Navigation } from "@/components/Navigation";
 import hopeLight from "@/assets/hope-light.jpg";
 import journeyTogether from "@/assets/journey-together.jpg";
@@ -34,7 +36,11 @@ const Index = () => {
 
       <LegacySection />
 
-      <QuoteSection 
+      <VideoSection />
+
+      <MemorialMessages />
+
+      <QuoteSection
         quote="We rise by lifting others, and in doing so, we discover that our purpose was never just about us—it was about becoming the light we needed when we were in darkness."
         author="THE LEGACY"
       />
