@@ -5,6 +5,8 @@ import { LegacySection } from "@/components/LegacySection";
 import { VideoSection } from "@/components/VideoSection";
 import { MemorialMessages } from "@/components/MemorialMessages";
 import { Navigation } from "@/components/Navigation";
+import { TimelineSection } from "@/components/TimelineSection";
+import { PhotoGallery } from "@/components/PhotoGallery";
 import hopeLight from "@/assets/hope-light.jpg";
 import journeyTogether from "@/assets/journey-together.jpg";
 
@@ -35,6 +37,10 @@ const Index = () => {
       />
 
       <LegacySection />
+
+      <TimelineSection />
+
+      <PhotoGallery />
 
       <VideoSection />
 
